@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleExecutable</key>
+    <string>VoiceMusic</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.rikka.VoiceMusic</string>
+    <key>CFBundleName</key>
+    <string>Dmitriy Cola</string>
+    <key>CFBundleDisplayName</key>
+    <string>Dmitriy Cola</string>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>13.0</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Dmitriy Cola listens for your commands to play music.</string>
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>Dmitriy Cola recognizes Russian and English song requests.</string>
+    <key>NSUserNotificationAlertStyle</key>
+    <string>banner</string>
+    <key>NSAppleEventsUsageDescription</key>
+    <string>Voice Music controls Apple Music to find and play tracks.</string>
+</dict>
+</plist>
