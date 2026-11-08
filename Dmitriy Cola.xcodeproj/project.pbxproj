@@ -1,0 +1,51 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+/* Begin PBXBuildFile section */
+		B00000000000000000000001 /* VoiceMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000001 /* VoiceMusic.swift */; };
+		B00000000000000000000002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000003 /* Assets.xcassets */; };
+		B00000000000000000000003 /* logo-voice-music.png in Resources */ = {isa = PBXBuildFile; fileRef = F00000000000000000000004 /* logo-voice-music.png */; };
+/* End PBXBuildFile section */
+/* Begin PBXFileReference section */
+		F00000000000000000000001 /* VoiceMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceMusic.swift; sourceTree = "<group>"; };
+		F00000000000000000000002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F00000000000000000000003 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F00000000000000000000004 /* logo-voice-music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resources/logo-voice-music.png"; sourceTree = "<group>"; };
+		F00000000000000000000005 /* Dmitriy Cola.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dmitriy Cola.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+/* Begin PBXFrameworksBuildPhase section */
+		W00000000000000000000001 /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+/* Begin PBXGroup section */
+		G00000000000000000000001 = {isa = PBXGroup; children = (G00000000000000000000002 /* Dmitriy Cola */, G00000000000000000000003 /* Products */,); sourceTree = "<group>"; };
+		G00000000000000000000002 /* Dmitriy Cola */ = {isa = PBXGroup; children = (F00000000000000000000001 /* VoiceMusic.swift */, F00000000000000000000002 /* Info.plist */, F00000000000000000000003 /* Assets.xcassets */, F00000000000000000000004 /* logo-voice-music.png */,); path = "Dmitriy Cola"; sourceTree = "<group>"; };
+		G00000000000000000000003 /* Products */ = {isa = PBXGroup; children = (F00000000000000000000005 /* Dmitriy Cola.app */,); name = Products; sourceTree = "<group>"; };
+/* End PBXGroup section */
+/* Begin PBXNativeTarget section */
+		T00000000000000000000001 /* Dmitriy Cola */ = {isa = PBXNativeTarget; buildConfigurationList = L00000000000000000000001 /* Build configuration list for PBXNativeTarget "Dmitriy Cola" */; buildPhases = (S00000000000000000000001 /* Sources */, W00000000000000000000001 /* Frameworks */, R00000000000000000000001 /* Resources */,); buildRules = (); dependencies = (); name = "Dmitriy Cola"; productName = "Dmitriy Cola"; productReference = F00000000000000000000005 /* Dmitriy Cola.app */; productType = "com.apple.product-type.application"; };
+/* End PBXNativeTarget section */
+/* Begin PBXProject section */
+		P00000000000000000000001 /* Project object */ = {isa = PBXProject; attributes = {BuildIndependentTargetsInParallel = 1; LastUpgradeCheck = 1600; TargetAttributes = {T00000000000000000000001 = {CreatedOnToolsVersion = 16.0; }; }; }; buildConfigurationList = L00000000000000000000002 /* Build configuration list for PBXProject "Dmitriy Cola" */; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (en, Base,); mainGroup = G00000000000000000000001; productRefGroup = G00000000000000000000003 /* Products */; projectDirPath = ""; projectRoot = ""; targets = (T00000000000000000000001 /* Dmitriy Cola */,); };
+/* End PBXProject section */
+/* Begin PBXResourcesBuildPhase section */
+		R00000000000000000000001 /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (B00000000000000000000002 /* Assets.xcassets in Resources */, B00000000000000000000003 /* logo-voice-music.png in Resources */,); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+/* Begin PBXSourcesBuildPhase section */
+		S00000000000000000000001 /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (B00000000000000000000001 /* VoiceMusic.swift in Sources */,); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+/* Begin XCBuildConfiguration section */
+		C00000000000000000000001 /* Debug project */ = {isa = XCBuildConfiguration; buildSettings = {MACOSX_DEPLOYMENT_TARGET = 13.0; SDKROOT = macosx; SWIFT_VERSION = 5.0; }; name = Debug; };
+		C00000000000000000000002 /* Release project */ = {isa = XCBuildConfiguration; buildSettings = {MACOSX_DEPLOYMENT_TARGET = 13.0; SDKROOT = macosx; SWIFT_VERSION = 5.0; }; name = Release; };
+		C00000000000000000000003 /* Debug app */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_STYLE = Automatic; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = "Dmitriy Cola/Info.plist"; MACOSX_DEPLOYMENT_TARGET = 13.0; PRODUCT_BUNDLE_IDENTIFIER = com.rikka.VoiceMusic; PRODUCT_NAME = "Dmitriy Cola"; SDKROOT = macosx; SWIFT_VERSION = 5.0; }; name = Debug; };
+		C00000000000000000000004 /* Release app */ = {isa = XCBuildConfiguration; buildSettings = {ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_STYLE = Automatic; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = "Dmitriy Cola/Info.plist"; MACOSX_DEPLOYMENT_TARGET = 13.0; PRODUCT_BUNDLE_IDENTIFIER = com.rikka.VoiceMusic; PRODUCT_NAME = "Dmitriy Cola"; SDKROOT = macosx; SWIFT_VERSION = 5.0; }; name = Release; };
+/* End XCBuildConfiguration section */
+/* Begin XCConfigurationList section */
+		L00000000000000000000001 /* Build configuration list for PBXNativeTarget "Dmitriy Cola" */ = {isa = XCConfigurationList; buildConfigurations = (C00000000000000000000003 /* Debug app */, C00000000000000000000004 /* Release app */,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		L00000000000000000000002 /* Build configuration list for PBXProject "Dmitriy Cola" */ = {isa = XCConfigurationList; buildConfigurations = (C00000000000000000000001 /* Debug project */, C00000000000000000000002 /* Release project */,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+	};
+	rootObject = P00000000000000000000001 /* Project object */;
+}
