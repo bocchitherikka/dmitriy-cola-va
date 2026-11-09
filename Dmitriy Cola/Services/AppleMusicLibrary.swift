@@ -40,24 +40,7 @@ final class AppleMusicLibrary {
                 return
             }
             let artwork = self.artwork(for: best)
-            let playlistName = Self.escapeAppleScript(best.playlist)
-            let playScript = """
-            tell application "Music"
-                set targetID to \(best.databaseID) as integer
-                repeat with p in user playlists
-                    if (name of p as text) is "\(playlistName)" then
-                        repeat with t in tracks of p
-                            if (database ID of t) is targetID then
-                                play t
-                                return name of t as text
-                            end if
-                        end repeat
-                    end if
-                end repeat
-                error "Track disappeared from playlist"
-            end tell
-            """
-            guard Self.runAppleScript(playScript) != nil else {
+            guard self.playTrackInPlaylist(best) else {
                 DispatchQueue.main.async {
                     let isRussian = Locale.current.language.languageCode?.identifier == "ru"
                     let message = isRussian
@@ -69,6 +52,41 @@ final class AppleMusicLibrary {
             }
             DispatchQueue.main.async { completion((best, artwork), nil) }
         }
+    }
+
+    private static func playlistLocator(for track: Track) -> String {
+        if track.playlistID.isEmpty {
+            return "first user playlist whose name is \"\(escapeAppleScript(track.playlist))\""
+        }
+        return "first user playlist whose persistent ID is \"\(escapeAppleScript(track.playlistID))\""
+    }
+
+    /// Включает трек как элемент его плейлиста. Дальше Music продолжает сама (автовоспроизведение).
+    private func playTrackInPlaylist(_ track: Track) -> Bool {
+        let script = """
+        tell application "Music"
+            set targetID to \(track.databaseID) as integer
+            set pl to \(Self.playlistLocator(for: track))
+            set trackCount to count of tracks of pl
+            set foundIndex to 0
+            if \(track.index) >= 1 and \(track.index) <= trackCount then
+                if (database ID of track \(track.index) of pl) is targetID then set foundIndex to \(track.index)
+            end if
+            if foundIndex is 0 then
+                repeat with i from 1 to trackCount
+                    if (database ID of track i of pl) is targetID then
+                        set foundIndex to i
+                        exit repeat
+                    end if
+                end repeat
+            end if
+            if foundIndex is 0 then error "Track disappeared from playlist"
+            set shuffle enabled to false
+            play (track foundIndex of pl)
+            return "ok"
+        end tell
+        """
+        return Self.runAppleScript(script) != nil
     }
 
     func pausePlayback(completion: @escaping (String?) -> Void) {
@@ -183,6 +201,7 @@ final class AppleMusicLibrary {
             tell application "Music"
                 repeat with p in user playlists
                     if (name of p as text) is "\(escapedName)" then
+                        set shuffle enabled to false
                         play p
                         return name of p as text
                     end if
@@ -292,8 +311,11 @@ final class AppleMusicLibrary {
             set outputText to ""
             repeat with p in user playlists
                 set playlistName to name of p as text
+                set playlistID to persistent ID of p as text
+                set i to 0
                 repeat with t in tracks of p
-                    set outputText to outputText & (name of t as text) & tab & (artist of t as text) & tab & playlistName & tab & (database ID of t as text) & linefeed
+                    set i to i + 1
+                    set outputText to outputText & (name of t as text) & tab & (artist of t as text) & tab & playlistName & tab & (database ID of t as text) & tab & playlistID & tab & (i as text) & linefeed
                 end repeat
             end repeat
             return outputText
@@ -303,7 +325,9 @@ final class AppleMusicLibrary {
         return output.split(whereSeparator: \.isNewline).compactMap { line in
             let fields = line.split(separator: "\t", omittingEmptySubsequences: false).map(String.init)
             guard fields.count >= 4 else { return nil }
-            return Track(title: fields[0], artist: fields[1], playlist: fields[2], databaseID: fields[3])
+            return Track(title: fields[0], artist: fields[1], playlist: fields[2], databaseID: fields[3],
+                         playlistID: fields.count > 4 ? fields[4] : "",
+                         index: fields.count > 5 ? (Int(fields[5]) ?? 0) : 0)
         }
     }
 

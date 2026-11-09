@@ -578,7 +578,7 @@ final class VoiceController: ObservableObject {
 
     private func startNowPlayingPolling() {
         nowPlayingTimer?.invalidate()
-        nowPlayingTimer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { [weak self] _ in
+        nowPlayingTimer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { [weak self] _ in
             Task { @MainActor [weak self] in
                 guard let self else { return }
                 self.appleMusic.fetchNowPlaying { [weak self] track, artwork in

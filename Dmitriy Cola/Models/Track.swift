@@ -11,4 +11,6 @@ struct Track: Hashable, Identifiable {
     let artist: String
     let playlist: String
     let databaseID: String
+    var playlistID: String = ""
+    var index: Int = 0
 }
